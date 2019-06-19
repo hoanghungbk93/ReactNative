@@ -41,7 +41,7 @@ export default class Btn extends Component {
             this.setState({ operator: "-" })
         }
         else if ("x" == operator) {
-            if (this.state.operator == "=") {
+            if (this.state.operator == "=" ) {
                 await this.setState({
                     result : 1
                 })
@@ -51,13 +51,11 @@ export default class Btn extends Component {
             this.setState({ operator: "x"})
         }
         else if ("/" == operator) {
-            if (this.state.operator == "=") {
-                await this.setState(
-                    { result: 1 }
-                )
+            if (0 != this.state.result)
+            {
+                _result = this.state.secondResult / this.state.result
+                this.setState({ operator: "/" })
             }
-            _result = this.state.secondResult / this.state.result
-            this.setState({ operator: "/" })
         }
         if (true == this.state.firstCalculate) {
             this.setState({
